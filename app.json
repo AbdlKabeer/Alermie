@@ -16,7 +16,12 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "permissions": [
+        "RECEIVE_BOOT_COMPLETED",
+        "VIBRATE"
+      ],
+      "edgeToEdgeEnabled": true,
+      "package": "com.kampusbox.Alermie"
     },
     "web": {
       "bundler": "metro",
@@ -37,6 +42,16 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "13a3b9b5-4c5a-448e-bbbe-2b2c3ff5b0fe"
+      }
+    },
+    "assets": [
+      "./assets/alarm.mp3"
+    ],
+    "owner": "kampusbox"
   }
 }
