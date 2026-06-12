@@ -268,20 +268,32 @@ const AlarmApp = () => {
   };
 
   const scheduleAlarmNotification = async (alarm: Alarm) => {
+    console.log(alarm.time)
+    console.log(alarm.time)
+    console.log(alarm.time)
+    console.log(alarm.time)
+    console.log(alarm.time)
     const [hours, minutes] = alarm.time.split(':').map(Number);
     let alarmHours = hours;
     if (alarm.period.toLowerCase() === 'pm' && hours !== 12) alarmHours += 12;
     if (alarm.period.toLowerCase() === 'am' && hours === 12) alarmHours = 0;
-
+    console.log("++++++++++")
+    console.log(alarmHours)
+    console.log(alarmHours)
+    console.log(alarmHours)
     const notificationIds: string[] = [];
 
     if (alarm.repeat === 'once') {
       const alarmDate = new Date();
+      console.log(alarmHours)
       alarmDate.setHours(alarmHours, minutes, 0, 0);
       if (alarmDate <= new Date()) {
         alarmDate.setDate(alarmDate.getDate() + 1);
       }
       console.log(`Scheduling one-time alarm for ${alarmDate}`);
+      console.log(alarmDate)
+      console.log(alarmDate)
+      console.log(alarmDate)
       const notificationId = await Notifications.scheduleNotificationAsync({
         content: {
           title: alarm.label || 'Wake up !!!',
@@ -290,6 +302,7 @@ const AlarmApp = () => {
           vibrate: alarm.vibrate ? [0, 500, 1000] : undefined,
           data: { alarmId: alarm.id },
         },
+        // @ts-ignore
         trigger: {
           date: alarmDate,
           repeats: false,
@@ -419,6 +432,8 @@ const AlarmApp = () => {
 
   const saveAlarm = () => {
     const newId = alarms.length > 0 ? Math.max(...alarms.map((a) => a.id)) + 1 : 1;
+    console.log("*******************")
+    console.log(newAlarm)
     const alarm: Alarm = {
       id: newId,
       time: `${String(newAlarm.hour).padStart(2, '0')}:${String(newAlarm.minute).padStart(2, '0')}`,

@@ -36,7 +36,12 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#ffffff",
+          "sounds": [
+            "./assets/alarm.wav",
+            "./assets/alarm.mp3"
+          ],
+          "enableBackgroundRemoteNotifications": false
         }
       ]
     ],
